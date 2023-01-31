@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Càlculs de poder calorífic, calor, calor específica, massa del combustible, cabal d'aigua i cabal de combustible</title>
 </head>
@@ -23,12 +23,13 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     function calcular() {
-      // Obtenir les dades del formulari
-      var potencia = document.getElementById("potencia").value;
-      var calor_especifica = document.getElementById("calor_especifica").value;
-      var poder_calorifico_superior = document.getElementById("poder_calorifico_superior").value;
-      var rendimiento = document.getElementById("rendimiento").value;
-      
+     
+          // Obtenir les dades que ha introduït l'usuari
+    var potencia = document.getElementById("potencia").value;
+    var calor_especifica = document.getElementById("calor_especifica").value;
+    var poder_calorifico_superior = document.getElementById("poder_calorifico_superior").value;
+    var rendimiento = document.getElementById("rendimiento").value;
+
       // Calcular la quantitat de calor que es produeix cada minut
       var calor = potencia * 60;
       
@@ -40,12 +41,31 @@
       
       // Mostrar el resultat en la pantalla
       document.getElementById("resultado").innerHTML = 
-        "La quantitat de calor que es produeix cada minut és de " + calor + " kJ." +
+        "La quantitat de calor que es produeix cada minut es pot calcular utilitzant la fórmula: Q = P * t" +
         "<br>" +
-        "La massa de gasoil necessària per produir aquesta quantitat de calor és de " + massa_gasoil + " kg/min." +
+        "On Q és la quantitat de calor en joules, P és la potència en watts i t és el temps en segons." +
         "<br>" +
-        "El cabal de gasoil que s'ha de fer arribar al motor cada minut és de " + cabal_gasoil + " kg/s.";
-    }
+        "Aplicant aquesta fórmula amb els valors que has introduït, es pot calcular que la quantitat de calor que es produeix cada minut és de " + potencia + " kW * 60 s = " + calor + " kJ." +
+        "<br>" +
+        "<br>" +
+        "La massa de gasoil necessària per produir aquesta quantitat de calor es pot calcular utilitzant la fórmula: m = Q / (c * ΔH)" +
+        "<br>" +
+        "On m és la massa de gasoil en kg, Q és la quantitat de calor en joules, c és la calor específica del gasoil en kJ/kg i ΔH és el poder calorífic superior del gasoil en MJ/kg." +
+        "<br>" +
+        "Aplicant aquesta fórmula amb els valors que has introduït, es pot calcular que la massa de gasoil necessària és de " + calor + " kJ / (" + calor_especifica + " kJ/kg * " + poder_calorifico_superior + " MJ/kg) = " + massa_gasoil + " kg/min." +
+        "<br>" +
+        "<br>" +
+        "El cabal de gasoil que s'ha de fer arribar al motor cada minut es pot calcular utilitzant la fórmula: v = m / t" +
+        "<br>" +
+        "On v és el cabal en kg/s i m és la massa en kg i t és el temps en segons." +
+        "<br>" +
+        "Aplicant aquesta fórmula amb els valors que has introduït, es pot calcular que el cabal de gasoil que s'ha de fer arribar al motor cada minut és de " + massa_gasoil + " kg/min / 60 s/min = " + cabal_gasoil + " kg/s." +
+        "<br>" +
+        "<br>" +
+        "Finalment, si el rendiment del motor és del " + rendimiento + "% (segons has introduït), el cabal de gasoil que s'ha de fer arribar al motor cada minut ha de ser el " + rendimiento + "% d'aquest valor, és a dir " + rendimiento + "% * " + cabal_gasoil + " kg/s = " + cabal_gasoil * rendimiento + " kg/s." +
+        "<br>" +
+        "Per tant, el cabal de gasoil que s'ha de fer arribar al motor cada minut és de " + cabal_gasoil * rendimiento + " kg/s."
+  }
   </script>
 </body>
 </html>
