@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Càlcul de potència elèctrica útil de parc eòlic</title>  <h2>Càlcul de potència elèctrica útil de parc eòlic</h2>
+  <style>
+    /* Estilització del formulari */
+    form {
+      width: 500px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="button"] {
+      width: 20%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+   
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+    /* Estilització del resultat */
+    #resultado {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>  <form>
+    <label for="num_aerogeneradores">Nombre d'aerogeneradors:</label>
+    <input type="text" id="num_aerogeneradores" name="num_aerogeneradores">
+    <br>
+    <label for="diametre">Diàmetre de l'àrea d'escombratge de les pales en m:</label>
+    <input type="text" id="diametre" name="diametre">
+    <br>
+    <label for="rendimiento_aerog">Rendiment dels aerogeneradors:</label>
+    <input type="text" id="rendimiento_aerog" name="rendimiento_aerog">
+    <br>
+    <label for="velocidad_viento">Velocitat mitjana del vent en km/h:</label>
+    <input type="text" id="velocidad_viento" name="velocidad_viento">
+    <br>
+    <label for="dias_funcionamiento">Dies de funcionament del parc:</label>
+    <input type="text" id="dias_funcionamiento" name="dias_funcionamiento">
+    <br>
+    <label for="horas_diarias">Hores diàries de funcionament del parc:</label>
+    <input type="text" id="horas_diarias" name="horas_diarias">
+    <br>
+    <label for="densidad_aire">Densitat de l'aire en g/m<sup>3</sup>:</label>
+    <input type="text" id="densidad_aire" name="densidad_aire">
+    <br>
+    <label for="coef_aprovechamiento_viento">Coeficient d'aprofitament del vent:</label>
+    <input type="text" id="coef_aprovechamiento_viento" name="coef_aprovechamiento_viento">
+    <br>
+   
+<label for="precio_venta">Preu de venda de l'energia eòlica en cèntims d'euro per kW h:</label>
+    <input type="text" id="precio_venta" name="precio_venta">
+    <br>
+    <input type="button" value="Calcular" onclick="calcular()">
+  </form>
+  <br>
+  <div id="resultado"></div>
+  <script>
+    function calcular() {
+      // Llegir les dades de l'formulari
+      var num_aerogeneradores = document.getElementById("num_aerogeneradores").value;
+      var diametre = document.getElementById("diametre").value;
+      var rendimiento_aerog = document.getElementById("rendimiento_aerog").value;
+      var velocidad_viento = document.getElementById("velocidad_viento").value;
+      var dias_funcionamiento = document.getElementById("dias_funcionamiento").value;
+      var horas_diarias = document.getElementById("horas_diarias").value;
+      var densidad_aire = document.getElementById("densidad_aire").value;
+      var coef_aprovechamiento_viento = document.getElementById("coef_aprovechamiento_viento").value;
+      var precio_venta = document.getElementById("precio_venta").value;
+      
+      // Convertir les dades a nombres
+      num_aerogeneradores = parseInt(num_aerogeneradores);
+      diametre = parseInt(diametre);
+      rendimiento_aerog = parseFloat(rendimiento_aerog);
+      velocidad_viento = parseInt(velocidad_viento);
+      dias_funcionamiento = parseInt(dias_funcionamiento);
+      horas_diarias = parseInt(horas_diarias);
+      densidad_aire = parseInt(densidad_aire);
+      coef_aprovechamiento_viento = parseFloat(coef_aprovechamiento_viento);
+      precio_venta = parseFloat(precio_venta);
+      
+      // Calcular la potència mitjana del vent per a un aerogenerador
+      
+      // Calcular la potència mitjana del vent per a un aerogenerador
+      var area = Math.PI * Math.pow(diametre / 2, 2);
+      var potencia_viento = (1 / 2) * densidad_aire * Math.pow(velocidad_viento, 3) * area * coef_aprovechamiento_viento;
+      
+      // Calcular la potència elèctrica útil que generarà cada aerogenerador
+      var potencia_util = potencia_viento * rendimiento_aerog;
+      
+      // Calcular l'energia elèctrica total que es generarà al parc durant un any
+      var energia_total = potencia_util * horas_diarias * dias_funcionamiento;
+      
+      // Calcular els ingressos que tindrà el parc eòlic
+      var ingresos = energia_total * (precio_venta / 100);
+      
+      // Calcular en quin percentatge disminuirien els ingressos si la velocitat mitjana del vent es reduís un 10 %
+      var disminucion = ingresos * 0.1;
+      
+      // Mostrar els resultats
+      document.getElementById("resultado").innerHTML = "Potència mitjana del vent per a un aerogenerador: " + potencia_viento + " kW<br>"
+                                                     + "Potència elèctrica útil que generarà cada aerogenerador: " + potencia_util + " kW<br>"
+                                                     + "Energia elèctrica total que es generarà al parc durant un any: " + energia_total + " kW h<br>"
+                                                     + "Ingressos que tindrà el parc eòlic: " + ingresos + " €<br>"
+                                                     + "Disminució dels ingressos si la velocitat mitjana del vent es reduís un 10 %: " + disminucion + " €";
+    }
+  </script>
+</body></html>
