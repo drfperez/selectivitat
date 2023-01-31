@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Càlculs de poder calorífic, calor, calor específica, massa del combustible, cabal d'aigua i cabal de combustible</title>
+</head>
+<body>
+  <h1>Càlculs de poder calorífic, calor, calor específica, massa del combustible, cabal d'aigua i cabal de combustible</h1>
+  <p>Un motor de combustió interna de cilindrada 2.000cc, en el qual s'està utilitzant gasoil com a combustible, necessita una potència de 60 kW per a la seva correcte funcionament. Si la calor específica del gasoil és de 42,4 kJ/kg i el seu poder calorífic superior és de 43,5 MJ/kg, quin cabal de gasoil s'ha de fer arribar al motor cada minut si el rendiment del motor és del 30%?</p>
+  <form id="form">
+    <label for="potencia">Potència del motor (kW):</label><br>
+    <input type="number" id="potencia" name="potencia"><br>
+    <label for="calor_especifica">Calor específica del gasoil (kJ/kg):</label><br>
+    <input type="number" id="calor_especifica" name="calor_especifica"><br>
+    <label for="poder_calorifico_superior">Poder calorífic superior del gasoil (MJ/kg):</label><br>
+    <input type="number" id="poder_calorifico_superior" name="poder_calorifico_superior"><br>
+    <label for="rendimiento">Rendiment del motor (%):</label><br>
+    <input type="number" id="rendimiento" name="rendimiento"><br>
+    <button type="button" onclick="calcular()">Calcular</button>
+  </form> 
+  <br>
+  <div id="resultado"></div>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    function calcular() {
+      // Obtenir les dades del formulari
+      var potencia = document.getElementById("potencia").value;
+      var calor_especifica = document.getElementById("calor_especifica").value;
+      var poder_calorifico_superior = document.getElementById("poder_calorifico_superior").value;
+      var rendimiento = document.getElementById("rendimiento").value;
+      
+      // Calcular la quantitat de calor que es produeix cada minut
+      var calor = potencia * 60;
+      
+      // Calcular la massa de gasoil necessària per produir aquesta quantitat de calor
+      var massa_gasoil = calor / (calor_especifica * poder_calorifico_superior);
+      
+      // Calcular el cabal de gasoil que s'ha de fer arribar al motor cada minut
+      var cabal_gasoil = massa_gasoil / 60;
+      
+      // Mostrar el resultat en la pantalla
+      document.getElementById("resultado").innerHTML = 
+        "La quantitat de calor que es produeix cada minut és de " + calor + " kJ." +
+        "<br>" +
+        "La massa de gasoil necessària per produir aquesta quantitat de calor és de " + massa_gasoil + " kg/min." +
+        "<br>" +
+        "El cabal de gasoil que s'ha de fer arribar al motor cada minut és de " + cabal_gasoil + " kg/s.";
+    }
+  </script>
+</body>
+</html>
