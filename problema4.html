@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Càlcul de potència elèctrica útil de instal·lació fotovoltaica</title>
+    <h2>Càlcul de potència elèctrica útil de instal·lació fotovoltaica</h2>
+</head>
+<body>
+    <form>
+        <label for="potencia_paneles">Potència de cada panel fotovoltaic (en W):</label>
+        <input type="text" id="potencia_paneles" name="potencia_paneles">
+        <br>
+        <label for="num_paneles">Nombre de panells fotovoltaics:</label>
+        <input type="text" id="num_paneles" name="num_paneles">
+        <br>
+        <label for="rendimiento_paneles">Rendiment dels panells fotovoltaics (%):</label>
+        <input type="text" id="rendimiento_paneles" name="rendimiento_paneles">
+        <br>
+        <label for="horas_sol">Hores de sol diàries:</label>
+        <input type="text" id="horas_sol" name="horas_sol">
+        <br>
+        <label for="dias_funcionamiento">Dies de funcionament de l'instal·lació:</label>
+        <input type="text" id="dias_funcionamiento" name="dias_funcionamiento">
+        <br>
+        <label for="precio_venta">Preu de venda de l'energia fotovoltaica en cèntims d'euro per kW h:</label>
+        <input type="text" id="precio_venta" name="precio_venta">
+        <br>
+        <input type="button" value="Calcular" onclick="calcular()">
+    </form>
+    <br>
+    <div id="resultado"></div>
+    <script>
+        function calcular() {
+            // Llegir les dades de l'formulari
+            var potencia_paneles = document.getElementById("potencia_paneles").value;
+            var num_paneles = document.getElementById("num_paneles").value;
+            var rendimiento_paneles = document.getElementById("rendimiento_paneles").value;
+            var horas_sol = document.getElementById("horas_sol").value;
+            var dias_funcionamiento = document.getElementById("dias_funcionamiento").value;
+            var precio_venta = document.getElementById("precio_venta").value;
+            // Calcular la potència elèctrica útil
+            var potencia_util = (potencia_paneles * num_paneles * rendimiento_paneles/100 * horas_sol * dias_funcionamiento) / 1000;
+var ganancia = potencia_util * precio_venta;
+// Mostrar el resultat
+document.getElementById("resultado").innerHTML = "La potència elèctrica útil generada per l'instal·lació és de " + potencia_util + " kW h/any i la ganancia és de " + ganancia + " cèntims d'euro/any.";
+}
+</script>
+
+</body>
+</html>
+
+
+
