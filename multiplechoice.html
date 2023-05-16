@@ -44,6 +44,194 @@
 
 			
 		  "Correct! Paris is the capital of France.",
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ABCD Quiz</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+#quiz-container {
+	margin-top: 20px;
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+
+button {
+	display: block;
+	margin: 10px auto;
+	padding: 10px 20px;
+	background-color: #4caf50;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #45a049;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 600px) {
+	h1 {
+		font-size: 24px;
+	}
+
+	h2 {
+		font-size: 20px;
+	}
+
+	button {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-size: 18px;
+	}
+
+	button {
+		font-size: 12px;
+	}
+}
+
+	</style>
+</head>
+<body>
+	<h1>ABCD Quiz</h1>
+	<div id="quiz-container"></div>
+
+	<script>
+		// Define the questions, answers, and feedback
+		const questions = [
+		  "What is the capital of France?",
+		  "What is the largest planet in our solar system?",
+		  "What is the tallest mammal?"
+		];
+
+		const answers = [
+		  ["A. Paris", "B. London", "C. Berlin", "D. Madrid"],
+		  ["A. Jupiter", "B. Earth", "C. Saturn", "D. Mars"],
+		  ["A. Elephant", "B. Giraffe", "C. Rhino", "D. Hippo"]
+		];
+
+		const feedback = [
+		  "Correct! Paris is the capital of France.",
+		  "Correct! Jupiter is the largest planet in our solar system.",
+		  "Correct! The giraffe is the tallest mammal."
+		];
+
+		// Define the correct answers
+		const correctAnswers = ["A", "A", "B"];
+
+		// Initialize the score and current question
+		let score = 0;
+		let currentQuestion = 0;
+
+		// Randomize the order of the questions
+		const shuffledIndexes = shuffleArray(Array.from(Array(questions.length).keys()));
+
+		// Display the current question and answer choices
+		function displayQuestion() {
+			const questionIndex = shuffledIndexes[currentQuestion];
+			const questionText = document.createTextNode(questions[questionIndex]);
+			const questionElement = document.createElement("h2");
+			questionElement.appendChild(questionText);
+			document.getElementById("quiz-container").appendChild(questionElement);
+
+			for (let i = 0; i < answers[questionIndex].length; i++) {
+				const answerText = document.createTextNode(answers[questionIndex][i]);
+				const answerElement = document.createElement("button");
+				answerElement.setAttribute("value", i);
+				answerElement.appendChild(answerText);
+				answerElement.addEventListener("click", checkAnswer);
+				document.getElementById("quiz-container").appendChild(answerElement);
+				document.getElementById("quiz-container").appendChild(document.createElement("br")); // Add a line break after each answer button
+			}
+		}
+
+		// Check the user's answer and provide feedback
+		function checkAnswer(event) {
+						const questionIndex = shuffledIndexes[currentQuestion];
+			const userAnswerIndex = event.target.value;
+			const userAnswer = answers[questionIndex][userAnswerIndex].charAt(0);
+			if (userAnswer === correctAnswers[questionIndex]) {
+				score++;
+				document.getElementById("quiz-container").innerHTML = "";
+				const feedbackElement = document.createElement("p");
+				feedbackElement.textContent = feedback[questionIndex];
+				const scoreElement = document.createElement("p");
+				scoreElement.textContent = "Score: " + score;
+				document.getElementById("quiz-container").appendChild(feedbackElement);
+				document.getElementById("quiz-container").appendChild(scoreElement);
+			} else {
+				score--;
+				document.getElementById("quiz-container").innerHTML = "";
+				const feedbackElement = document.createElement("p");
+				feedbackElement.textContent = "Incorrect. The correct answer is " + correctAnswers[questionIndex];
+				const scoreElement = document.createElement("p");
+				scoreElement.textContent = "Score: " + score;
+				document.getElementById("quiz-container").appendChild(feedbackElement);
+				document.getElementById("quiz-container").appendChild(scoreElement);
+			}
+
+			// Move on to the next question or end the quiz
+			currentQuestion++;
+			if (currentQuestion < questions.length) {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					displayQuestion();
+				}, 2000);
+			} else {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					const endMessage = document.createElement("h2");
+					endMessage.textContent = "Quiz complete! Final score: " + score;
+					document.getElementById("quiz-container").appendChild(endMessage);
+				}, 2000);
+			}
+		}
+
+		// Start the quiz
+		displayQuestion();
+
+		// Function to shuffle an array
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+			return array;
+		}
+	</script>
+</body>
+</html>
 
 		  "Correct! Jupiter is the largest planet in our solar system.",
 
