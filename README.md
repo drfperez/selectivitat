@@ -1,3 +1,5 @@
+You will find a multiple choice ABCD quiz with 30 seconds per question, feedback, skip and scoring.
+
 Problemes de selectivitat amb entrada de dades i explicacions 
 
 Prova de resposta múltiple amb retroalimentació i imatges.
