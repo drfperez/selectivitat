@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ABCD Quiz</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		#quiz-container {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		h2 {
+			margin-bottom: 10px;
+		}
+
+		button {
+			display: block;
+			margin: 10px auto;
+			padding: 10px 20px;
+			background-color: #4caf50;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.3s;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		p {
+			margin-bottom: 10px;
+		}
+
+		/* Responsive Styles */
+
+		@media (max-width: 600px) {
+			h1 {
+				font-size: 24px;
+			}
+
+			h2 {
+				font-size: 20px;
+			}
+
+			button {
+				font-size: 14px;
+			}
+		}
+
+		@media (max-width: 400px) {
+			h1 {
+				font-size: 20px;
+			}
+
+			h2 {
+				font-size: 18px;
+			}
+
+			button {
+				font-size: 12px;
+			}
+		}
+
+		#timer {
+			text-align: center;
+			font-size: 24px;
+			margin-bottom: 20px;
+	
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>ABCD Quiz</h1>
+
+	<div id="timer">30</div>
+	<div id="quiz-container"></div>
+
+	<script>
+		// JavaScript code here
+
+		// Define the questions, answers, and feedback
+		const questions = [
+    "<h2><span>What is shown in this image?</span></h2>" +
+    "<img src='https://thumbs.dreamstime.com/b/identidades-trigonom%C3%A9tricas-b%C3%A1sicas-f%C3%B3rmulas-para-calcular-el-programa-de-la-escuela-cotangenttriangleeducaci%C3%B3n-sinus-cosine-206588490.jpg' alt='Image description'>",
+    "<h2>What is the largest planet in our solar system?</h2>",
+"<h2>What is the name of this equation<br>\\[x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\].</h2>"
+
+]
+;
+
+		const answers = [
+			["A. Trigonometric formulas", "B. Differential formulas ", "C. Integral formulas" , "D. Hiperbolic formulas"],
+			["A. Jupiter", "B.s Earth", "C. Saturn", "D. Mars"],
+			["A. Sinus", "B. Quadratic", "C. Quadraticus","D. Cosinus"]
+		];
+
+		const feedback = [
+			"Correct! Trigonometry is the .",
+			"Correct! Jupiter is the largest planet in our solar system.",
+			"Correct! The famous quadratic equation was rendered in mathjax and it was not an easy task ."
+		];
+
+		// Define the correct answers
+		const correctAnswers = ["A", "A", "B"];
+
+		// Initialize the score, current question, and timer
+		let score = 0;
+		let currentQuestion = 0;
+		let timer = 30;
+		let totalSeconds = 0;
+		let timerInterval;
+
+		// Randomize the order of the questions
+		const shuffledIndexes = shuffleArray(Array.from(Array(questions.length).keys()));
+
+		
+// Display the current question and answer choices
+function displayQuestion() {
+    const questionIndex = shuffledIndexes[currentQuestion];
+    const questionContainer = document.getElementById("quiz-container");
+
+    const questionElement = document.createElement("div");
+    questionElement.innerHTML = questions[questionIndex];
+    questionContainer.appendChild(questionElement);
+
+    for (let i = 0; i < answers[questionIndex].length; i++) {
+        const answerText = document.createTextNode(answers[questionIndex][i]);
+        const answerElement = document.createElement("button");
+        answerElement.setAttribute("value", i);
+        answerElement.appendChild(answerText);
+        answerElement.addEventListener("click", checkAnswer);
+        questionContainer.appendChild(answerElement);
+        questionContainer.appendChild(document.createElement("br")); // Add a line break after each answer button
+    }
+
+// Hide the timer on the total score screen
+    document.getElementById("timer").style.display = "block";
+    
+    // Add skip button
+    const skipButton = document.createElement("button");
+    skipButton.textContent = "Skip";
+    skipButton.addEventListener("click", skipQuestion);
+    questionContainer.appendChild(skipButton);
+
+    // Render MathJax
+    MathJax.typesetPromise().then(() => {
+        // Start the timer
+        startTimer();
+    });
+}
+
+startTimer();
+		// Start the timer countdown
+		function startTimer() {
+			timerInterval = setInterval(updateTimer, 1000);
+		}
+
+		// Update the timer display and check for timeout
+		function updateTimer() {
+			timer--;
+			totalSeconds++;
+			document.getElementById("timer").textContent = timer;
+
+			if (timer <= 0) {
+				clearInterval(timerInterval);
+				handleTimeout();
+			}
+		}
+
+		// Check the user's answer and provide feedback
+		function checkAnswer(event) {
+			clearInterval(timerInterval); // Stop the timer
+
+			const questionIndex = shuffledIndexes[currentQuestion];
+			const userAnswerIndex = event.target.value;
+			const userAnswer = answers[questionIndex][userAnswerIndex].charAt(0);
+			if (userAnswer === correctAnswers[questionIndex]) {
+				score++;
+				document.getElementById("quiz-container").innerHTML = "";
+				const feedbackElement = document.createElement("p");
+				feedbackElement.textContent = feedback[questionIndex];
+				const scoreElement = document.createElement("p");
+				scoreElement.textContent = "Score: " + score;
+				document.getElementById("quiz-container").appendChild(feedbackElement);
+				document.getElementById("quiz-container").appendChild(scoreElement);
+			} else {
+			  score--;
+				document.getElementById("quiz-container").innerHTML = "";
+				const feedbackElement = document.createElement("p");
+				feedbackElement.textContent = "Incorrect. The correct answer is " + correctAnswers[questionIndex];
+				const scoreElement = document.createElement("p");
+				scoreElement.textContent = "Score: " + score;
+				document.getElementById("quiz-container").appendChild(feedbackElement);
+				document.getElementById("quiz-container").appendChild(scoreElement);
+			}
+
+			// Move on to the next question or end the quiz
+			currentQuestion++;
+			if (currentQuestion < questions.length) {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					resetTimer();
+					displayQuestion();
+				}, 2000);
+			} else {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					const endMessage = document.createElement("h2");
+					endMessage.textContent = "Quiz complete! Final score: " + score;
+					const timeTakenElement = document.createElement("p");
+					const totalSecondsElement = document.createTextNode("Total seconds taken: " + totalSeconds);
+					timeTakenElement.appendChild(totalSecondsElement);
+					document.getElementById("quiz-container").appendChild(endMessage);
+					document.getElementById("quiz-container").appendChild(timeTakenElement);
+				}, 2000);
+			}
+if (currentQuestion >= questions.length) {
+        document.getElementById("timer").style.display = "none";
+    }
+		}
+
+		// Handle timeout when the timer runs out
+function handleTimeout() {
+    clearInterval(timerInterval); // Stop the timer
+
+    const questionIndex = shuffledIndexes[currentQuestion];
+    document.getElementById("quiz-container").innerHTML = "";
+    const timeoutElement = document.createElement("p");
+    timeoutElement.textContent = "Time's up! The correct answer is " + correctAnswers[questionIndex];
+    const scoreElement = document.createElement("p");
+    scoreElement.textContent = "Score: " + score;
+    document.getElementById("quiz-container").appendChild(timeoutElement);
+    document.getElementById("quiz-container").appendChild(scoreElement);
+
+// Hide the timer on the total score screen
+    document.getElementById("timer").style.display = "none";
+
+    // Move on to the next question or end the quiz
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        setTimeout(() => {
+            document.getElementById("quiz-container").innerHTML = "";
+            resetTimer();
+            displayQuestion();
+        }, 2000);
+    } else {
+        setTimeout(() => {
+            document.getElementById("quiz-container").innerHTML = "";
+            const endMessage = document.createElement("h2");
+            endMessage.textContent = "Quiz complete! Final score: " + score;
+            const timeTakenElement = document.createElement("p");
+            const totalSecondsElement = document.createTextNode("Total seconds taken: " + totalSeconds);
+            timeTakenElement.appendChild(totalSecondsElement);
+            document.getElementById("quiz-container").appendChild(endMessage);
+            document.getElementById("quiz-container").appendChild(timeTakenElement);
+        }, 2000);
+    }
+}
+
+
+		// Skip the current question
+		function skipQuestion() {
+			clearInterval(timerInterval); // Stop the timer
+
+			const questionIndex = shuffledIndexes[currentQuestion];
+			document.getElementById("quiz-container").innerHTML = "";
+			const skipElement = document.createElement("p");
+			skipElement.textContent = "Question skipped. The correct answer is " + correctAnswers[questionIndex];
+			const scoreElement = document.createElement("p");
+			scoreElement.textContent = "Score: " + score;
+			document.getElementById("quiz-container").appendChild(skipElement);
+			document.getElementById("quiz-container").appendChild(scoreElement);
+
+			// Move on to the next question or end the quiz
+			currentQuestion++;
+			if (currentQuestion < questions.length) {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					resetTimer();
+					displayQuestion();
+				}, 2000);
+			} else {
+				setTimeout(() => {
+					document.getElementById("quiz-container").innerHTML = "";
+					const endMessage = document.createElement("h2");
+					endMessage.textContent = "Quiz complete! Final score: " + score;
+					const timeTakenElement = document.createElement("p");
+					const totalSecondsElement = document.createTextNode("Total seconds taken: " + totalSeconds);
+					timeTakenElement.appendChild(totalSecondsElement);
+					document.getElementById("quiz-container").appendChild(endMessage);
+					document.getElementById("quiz-container").appendChild(timeTakenElement);
+				}, 2000);
+			}
+		}
+
+		// Reset the timer to the initial value
+		function resetTimer() {
+			timer = 30;
+			document.getElementById("timer").textContent = timer;
+		}
+
+		// Utility function to shuffle an array
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+			return array;
+		}
+
+		// Start the quiz
+		displayQuestion();
+	</script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</body>
+</html>
+
+	
