@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+
+<html>
+
+   <head>
+
+      <style> .correct { color: green; } .incorrect { color: red; } </style>
+
+   </head>
+
+   <body>
+
+      <p>Fill in the blanks:</p>
+
+      <p>The capital of France is <input type="text" id="answer1">.</p>
+
+      <p>The capital of Italy is <input type="text" id="answer2">.</p>
+
+      <p>The capital of Spain is <input type="text" id="answer3">.</p>
+
+      <button onclick="checkAnswers()">Check</button> <button onclick="resetAnswers()">Reset</button> 
+
+      <div id="results"></div>
+
+      <script> var answers = [["paris", "city of lights", "city of love"], ["rome", "eternal city"], ["madrid", "capital of spain"]]; function checkAnswers() { var correct = 0; var incorrect = 0; for (var i = 0; i < answers.length; i++) { var answer = document.getElementById("answer" + (i + 1)).value.toLowerCase(); if (answers[i].includes(answer)) { document.getElementById("answer" + (i + 1)).className = "correct"; correct++; } else { document.getElementById("answer" + (i + 1)).className = "incorrect"; incorrect++; } } document.getElementById("results").innerHTML = "Correct: " + correct + "<br>Incorrect: " + incorrect; } function resetAnswers() { for (var i = 0; i < answers.length; i++) { document.getElementById("answer" + (i + 1)).value = ""; document.getElementById("answer" + (i + 1)).className = ""; } document.getElementById("results").innerHTML = ""; } </script> 
+
+   </body>
+
+</html><!DOCTYPE html> 
+
+<html>
+
+   <head>
+
+      <style> .correct { color: green; } .incorrect { color: red; } </style>
+
+   </head>
+
+   <body>
+
+      <p>Fill in the blanks:</p>
+
+      <p>The capital of France is <input type="text" id="answer1">.</p>
+
+      <p>The capital of Italy is <input type="text" id="answer2">.</p>
+
+      <p>The capital of Spain is <input type="text" id="answer3">.</p>
+
+      <button onclick="checkAnswers()">Check</button> <button onclick="resetAnswers()">Reset</button> 
+
+      <div id="results"></div>
+
+      <script> var answers = [["paris", "city of lights", "city of love"], ["rome", "eternal city"], ["madrid", "capital of spain"]]; function checkAnswers() { var correct = 0; var incorrect = 0; for (var i = 0; i < answers.length; i++) { var answer = document.getElementById("answer" + (i + 1)).value.toLowerCase(); if (answers[i].includes(answer)) { document.getElementById("answer" + (i + 1)).className = "correct"; correct++; } else { document.getElementById("answer" + (i + 1)).className = "incorrect"; incorrect++; } } document.getElementById("results").innerHTML = "Correct: " + correct + "<br>Incorrect: " + incorrect; } function resetAnswers() { for (var i = 0; i < answers.length; i++) { document.getElementById("answer" + (i + 1)).value = ""; document.getElementById("answer" + (i + 1)).className = ""; } document.getElementById("results").innerHTML = ""; } </script> 
+
+   </body>
+
+</html>
