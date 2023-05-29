@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+.correct {color: green;}
+
+.incorrect {color: red;}
+
+</style>
+
+</head>
+
+<body onload="startTimer()">
+
+<p>Fill in the blanks with the correct word:</p>
+
+<p>The <select id="gap1"><option value="quick">quick</option><option value="slow">slow</option><option value="fast">fast</option></select> brown fox jumps over the lazy dog.</p>
+
+<p>The quick brown fox jumps over the <select id="gap2"><option value="lazy">lazy</option><option value="active">active</option></select> dog.</p>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<button onclick="reset()">Reset</button>
+
+<div id="result"></div>
+
+<div id="time"></div>
+
+<script>
+
+var startTime;
+
+function startTimer() {
+
+    startTime = new Date();
+
+}
+
+function checkAnswers() {
+
+    var gap1 = document.getElementById("gap1").value;
+
+    var gap2 = document.getElementById("gap2").value;
+
+    var correct = 0;
+
+    var incorrect = 0;
+
+    if (gap1 == "quick") {
+
+        document.getElementById("gap1").classList.add("correct");
+
+        correct++;
+
+    } else {
+
+        document.getElementById("gap1").classList.add("incorrect");
+
+        incorrect++;
+
+    }
+
+    if (gap2 == "lazy") {
+
+        document.getElementById("gap2").classList.add("correct");
+
+        correct++;
+
+    } else {
+
+        document.getElementById("gap2").classList.add("incorrect");
+
+        incorrect++;
+
+    }
+
+    document.getElementById("result").innerHTML = "Correct: " + correct + "<br>Incorrect: " + incorrect;
+
+    var endTime = new Date();
+
+    var timeDiff = endTime - startTime;
+
+    timeDiff /= 1000;
+
+    var seconds = Math.round(timeDiff);
+
+    document.getElementById("time").innerHTML = "Time taken: " + seconds + " seconds";
+
+}
+
+function reset() {
+
+    document.getElementById("gap1").classList.remove("correct");
+
+    document.getElementById("gap1").classList.remove("incorrect");
+
+    document.getElementById("gap2").classList.remove("correct");
+
+    document.getElementById("gap2").classList.remove("incorrect");
+
+    document.getElementById("result").innerHTML = "";
+
+    startTimer();
+
+}
+
+</script>
+
+</body>
+
+</html>
