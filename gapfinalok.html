@@ -41,6 +41,84 @@ function populateGaps() {
         }
     }
 }
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.correct {color: green;}
+.incorrect {color: red;}
+</style>
+</head>
+<body onload="startTimer()">
+
+<p>Fill in the blanks with the correct word:</p>
+
+<p>The <select id="gap1"></select> brown fox jumps over the <select id="gap2"></select> dog.</p>
+
+<button onclick="checkAnswers()">Submit</button>
+<button onclick="reset()">Reset</button>
+
+<div id="result"></div>
+<div id="time"></div>
+
+<script>
+var startTime;
+var gaps = [
+  ["quick", "fast", "speedy"],
+  ["lazy", "sleepy", "sluggish"]
+];
+
+function startTimer() {
+    startTime = new Date();
+    populateGaps();
+}
+
+function populateGaps() {
+    for (var i = 1; i <= gaps.length; i++) {
+        var selectGap = document.getElementById("gap" + i);
+
+        for (var j = 0; j < gaps[i - 1].length; j++) {
+            var option = document.createElement("option");
+            option.value = gaps[i - 1][j];
+            option.text = gaps[i - 1][j];
+            selectGap.add(option);
+        }
+    }
+}
+
+function checkAnswers() {
+    var correct = 0;
+    var incorrect = 0;
+
+    for (var i = 1; i <= gaps.length; i++) {
+        var gapValue = document.getElementById("gap" + i).value;
+        var correctAnswer = gaps[i - 1][0];
+
+        if (gapValue === correctAnswer) {
+            document.getElementById("gap" + i).classList.add("correct");
+            correct++;
+        } else {
+            document.getElementById("gap" + i).classList.add("incorrect");
+            incorrect++;
+        }
+    }
+
+    document.getElementById("result").innerHTML = "Correct: " + correct + "<br>Incorrect: " + incorrect;
+
+    var endTime = new Date();
+    var timeDiff = endTime - startTime;
+    timeDiff /= 1000;
+    var seconds = Math.round(timeDiff);
+    document.getElementById("time").innerHTML = "Time taken: " + seconds + " seconds";
+}
+
+function reset() {
+    location.reload();
+}
+</script>
+
+</body>
+</html>
 
 function checkAnswers() {
     var correct = 0;
