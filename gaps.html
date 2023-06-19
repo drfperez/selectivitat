@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<style>
+
+.correct {color: green;}
+
+.incorrect {color: red;}
+
+</style>
+
+</head>
+
+<body onload="startTimer()">
+
+<h2>From computers to artificial intelligence</h2>
+
+<p>Fill in the blanks with the correct word:</p>
+
+<p>
+
+Predicting the future isn't easy. In 1943, Thomas Watson, chairman <select id="gap1"></select> the company IBM, said , “I think there’s a world market for about five computers.” Even in the 1970s, many experts <select id="gap2"></select> saying, “Nobody will want a computer in their home.” But today, computer technology is everywhere. You <select id="gap3"></select> have several computers in your kitchen says Dr Rodney Brooks of the Massachusetts Institute of Technology, pointing to the computer chips in our coffee makers, fridges, washing <select id="gap4"></select> and ovens. It’s almost impossible to imagine a world <select id="gap5"></select> computers. Dr Brooks is director of MIT’s Computer Science and Artificial Intelligence Laboratory. He says that computers are not <select id="gap6"></select> becoming more common, they’re <select id="gap7"></select> smarter too. They’re starting to think.Scientists at AI Research are developing their own thinking robot, <select id="gap8"></select> Hal. Child expert Anat Treist-Goren is teaching Hal to speak. She talks to him and reads <select id="gap9"></select> children’s stories. Baby Hal is growing up fast, and his language level is improving quickly. Soon, if <select id="gap10"></select> speak to him, you might even think he’s human !will be able to <select id="gap11"></select> all the arrangements. He’ll never get tired, he’ll never be ill and he’ll never <select id="gap12"></select> angry. The technology is almost here. Think about it. Wouldn’t you like to <select id="gap13"></select> your own “Hal”? Is chatGPT the new Hal of 2023?</p><p>
+
+Artificial Intelligence (AI) has made significant advancements in recent years, and one notable breakthrough is the emergence of ChatGPT. ChatGPT is a cutting-edge <select id="gap14"></select> that utilizes deep learning algorithms to engage in conversational interactions with humans. It has revolutionized the way we <select id="gap15"></select> with machines and has become an essential tool in various industries.
+
+ChatGPT's <select id="gap16"></select> lies in its ability to generate human-like responses, thanks to its massive<select id="gap17"></select> of pre-existing text data. By analyzing and understanding the patterns in this data, ChatGPT can produce coherent and contextually relevant answers. This <select id="gap18"></select> is often referred to as natural language processing (NLP), which enables ChatGPT to understand and generate human-like text.
+
+The impact of ChatGPT has been felt across multiple domains. In customer <select id="gap19"></select> , businesses can employ ChatGPT to provide instant and personalized support, reducing the need for human intervention. Additionally, ChatGPT has facilitated advancements in <select id="gap20"></select> research, allowing scientists to simulate conversations between virtual characters, thereby enhancing their understanding of human interaction.
+
+However, despite its <select id="gap21"></select> , ChatGPT still faces some challenges. One major concern is the issue of <select id="gap22"></select> . If ChatGPT is not properly <select id="gap23"></select>_ , it can inadvertently generate biased or inappropriate content. Researchers and developers are actively working on mitigating these concerns and ensuring that AI systems like ChatGPT are unbiased and ethical.
+
+Looking ahead, the future of ChatGPT and AI in general is incredibly promising. Continued research and development will enhance ChatGPT's capabilities, enabling it to handle more complex tasks and engage in even more sophisticated <select id="gap24"></select> (11). This progress will contribute to the broader advancement of AI and its integration into our daily lives, leading to a <select id="gap25"></select> (12) revolution in how we interact with technology.</p><p>
+
+</p>
+
+<h6 style="background-color:lightblue;"><footer>chatGPT content created by chatGPT version 24 May 2023<footer></h6>
+
+<button onclick="checkAnswers()">Submit</button>
+
+<button onclick="reset()">Reset</button>
+
+<div id="result"></div>
+
+<div id="time"></div>
+
+<script>
+
+var startTime;
+
+var gaps = [
+
+["of","from","at"],
+
+["were", "was", "is"],
+
+["already", "doesn't", "didn't"],
+
+["machines","timers","newspapers"],
+
+["without","with ","within"],
+
+["only","alone","everything"],
+
+["getting","setting","petting"],
+
+["called","named","cried"],
+
+["him","his","her"],
+
+["you","yours","hers"],
+
+["make","do","doing"],
+
+["get","set","put"],
+
+["have","gave","are"],
+
+["algorithm","system","framework"],
+
+["interact","communicate","connect"],
+
+["potential","strength","limitation"],
+
+["repository","archive","collection"],
+
+["process","feature","technique"],
+
+["support","service","satisfaction"],
+
+["computational","linguistic","cognitive"],
+
+["impact","succes","popularity"],
+
+["bias","safety","performance"],
+
+["trained","regulated","programmed"],
+
+["conversations","discussions","dialogues"],
+
+["transformative","disruptive","significant"],
+
+]
+
+function startTimer() {
+
+startTime = new Date();
+
+populateGaps();
+
+}
+
+function populateGaps() {
+
+for (var i = 1; i <= gaps.length; i++) {
+
+var selectGap = document.getElementById("gap" + i);
+
+var options = gaps[i - 1];
+
+var correctIndex = Math.floor(Math.random() * options.length);
+
+var correctAnswer = options[correctIndex];
+
+for (var j = 0; j < options.length; j++) {
+
+var option = document.createElement("option");
+
+option.value = options[j];
+
+option.text = options[j];
+
+selectGap.add(option);
+
+if (options[j] === correctAnswer) {
+
+// Set the correct answer as the selected option
+
+option.selected = true;
+
+}
+
+}
+
+}
+
+}
+
+function checkAnswers() {
+
+var correct = 0;
+
+var incorrect = 0;
+
+for (var i = 1; i <= gaps.length; i++) {
+
+var gapValue = document.getElementById("gap" + i).value;
+
+var correctAnswer = gaps[i - 1][0];
+
+if (gapValue === correctAnswer) {
+
+document.getElementById("gap" + i).classList.add("correct");
+
+correct++;
+
+} else {
+
+document.getElementById("gap" + i).classList.add("incorrect");
+
+incorrect++;
+
+}
+
+}
+
+document.getElementById("result").innerHTML = "Correct: " + correct + "<br>Incorrect: " + incorrect;
+
+var endTime = new Date();
+
+var timeDiff = endTime - startTime;
+
+timeDiff /= 1000;
+
+var seconds = Math.round(timeDiff);
+
+document.getElementById("time").innerHTML = "Time taken: " + seconds + " seconds";
+
+}
+
+function reset() {
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+Enviat des de l'Outlook per a l'Android
