@@ -129,7 +129,7 @@ startTimer();
 				const feedbackElement = document.createElement("p");
 				feedbackElement.textContent = "Incorrecte. La resposta correcta és " + correctAnswers[questionIndex];
 				const scoreElement = document.createElement("p");
-				scoreElement.textContent = "Score: " + score;
+				scoreElement.textContent = "Puntuació: " + score;
 				document.getElementById("quiz-container").appendChild(feedbackElement);
 				document.getElementById("quiz-container").appendChild(scoreElement);
 			}
@@ -168,7 +168,7 @@ startTimer();
 			const timeoutElement = document.createElement("p");
 			timeoutElement.textContent = "S'ha acabat el temps! La resposta correcta és " + correctAnswers[questionIndex];
 			const scoreElement = document.createElement("p");
-			scoreElement.textContent = "Score: " + score;
+			scoreElement.textContent = "Puntuació: " + score;
 			document.getElementById("quiz-container").appendChild(timeoutElement);
 			document.getElementById("quiz-container").appendChild(scoreElement);
 
