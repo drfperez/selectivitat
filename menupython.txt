@@ -1,0 +1,35 @@
+Explicant menu.py
+
+Aquest codi en Python utilitza la llibreria tkinter per crear una interfície gràfica simple amb un menú desplegable i algunes opcions. Aquí tens una explicació pas a pas:
+
+Importació de llibreries:
+
+S'importa la llibreria tkinter amb l'alias tk.
+Es fa servir la llibreria PIL (Python Imaging Library) per treballar amb imatges, específicament per carregar i mostrar imatges a la interfície gràfica.
+S'importa subprocess per executar altres scripts de Python des del programa principal.
+Funcions d'execució dels problemes:
+
+execute_problem_1 i execute_problem_2 criden scripts externs (problema1.py i problema2.py) usant subprocess.
+Creació de la finestra principal:
+
+Es crea una finestra amb tk.Tk() i es defineix el títol amb root.title("Menú de problemas").
+Carrega i mostra la imatge del logo:
+
+S'utilitza Image.open() de la llibreria PIL per carregar una imatge.
+Aquesta imatge es redimensiona a 75x75 píxels amb resize.
+Es converteix la imatge en un objecte PhotoImage per a tkinter amb ImageTk.PhotoImage() per poder mostrar-la dins la interfície gràfica.
+Mostra de la imatge del logo i text a la finestra:
+
+S'afegeix una etiqueta (Label) per mostrar la imatge del logo a la cantonada superior esquerra.
+Es defineix un text descriptiu (Label) amb una font específica i es justifica perquè ompli l'espai disponible a la finestra.
+Creació del menú desplegable:
+
+Es crea un menú (Menu) principal.
+Dins d'aquest menú, es crea un submenú (cascade) anomenat "Elegir problema".
+S'afegeixen dues opcions al submenú ("Problema 1" i "Problema 2") que criden les funcions execute_problem_1 i execute_problem_2 quan s'hi fa clic.
+Bucle principal de l'aplicació:
+
+Amb root.mainloop(), s'inicia el bucle principal de la interfície gràfica, mantenint la finestra oberta i permetent la interacció de l'usuari amb els elements creats.
+Aquest codi crea una interfície simple amb una imatge del logo, un text descriptiu i un menú desplegable per seleccionar i executar problemes específics.
+
+
