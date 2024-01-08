@@ -52,6 +52,7 @@ for i, pregunta_info in enumerate(preguntes):
     y += 25
 
     resposta_seleccionada = tk.StringVar()
+    resposta_seleccionada.set(None)  # Afegeix aquesta línia per evitar la preselecció
     respostes_seleccionades.append(resposta_seleccionada)
 
     for j, opcio in enumerate(opcions):
