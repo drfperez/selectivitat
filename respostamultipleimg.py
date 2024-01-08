@@ -5,7 +5,7 @@ from PIL import ImageTk, Image
 preguntes = [
     ("Qüestió 1: La tensió de ruptura d’un llautó és 550 MPa. Quina força axial cal per a provocar el trencament d’un eix massís de 6 mm de diàmetre?",
      ["10,37 kN", "15,55 kN", "19,80 kN", "62,20 kN"],
-     "a"),
+     "A"),
     # Altres preguntes van aquí...
     ("Pregunta 5: Què és una imatge?",
      [
@@ -13,7 +13,7 @@ preguntes = [
          {"text": "Un bloc de text", "img_path": "ruta_imatge_resposta2.jpg"},
          # ... altres respostes
      ],
-     "a")
+     "A")
 ]
 
 def comprovar_respostes(respostes_correctes, respostes_seleccionades):
@@ -42,7 +42,9 @@ def carregar_imatge(path, width, height):
     return ImageTk.PhotoImage(img)
 
 def mostrar_pregunta(pregunta, respostes):
-    label_imatge_pregunta = tk.Label(root, image=carregar_imatge("ruta_imatge_pregunta.jpg", 200, 200))
+    # Aquesta és la variable que has d'assignar amb el camí de la imatge de la pregunta
+    ruta_imatge_pregunta = "ruta_imatge_pregunta.jpg"
+    label_imatge_pregunta = tk.Label(root, image=carregar_imatge(ruta_imatge_pregunta, 200, 200))
     label_imatge_pregunta.pack()
 
     label_text_pregunta = tk.Label(root, text=pregunta, justify='left')
@@ -54,9 +56,10 @@ def mostrar_pregunta(pregunta, respostes):
     labels_imatges_respostes = []
     for i, resposta in enumerate(respostes):
         text = resposta["text"]
+        # Aquesta és la clau correcta per accedir al camí de la imatge de la resposta
         img_resposta = carregar_imatge(resposta["img_path"], 100, 100)
 
-        radio = tk.Radiobutton(root, text=text, variable=resposta_seleccionada, value=chr(ord('a') + i))
+        radio = tk.Radiobutton(root, text=text, variable=resposta_seleccionada, value=chr(ord('A') + i))
         radio.pack()
 
         label_imatge_resposta = tk.Label(root, image=img_resposta)
