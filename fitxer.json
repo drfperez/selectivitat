@@ -1,0 +1,29 @@
+{
+  "preguntes": [
+    {
+      "pregunta": "Qüestió 1: La tensió de ruptura d’un llautó és 550 MPa. Quina força axial cal per a provocar el trencament d’un eix massís de 6 mm de diàmetre?",
+      "respostes": [
+        "10,37 kN",
+        "15,55 kN",
+        "19,80 kN",
+        "62,20 kN"
+      ],
+      "resposta_correcta": "A"
+    },
+    {
+      "pregunta": "Pregunta 5: Què és una imatge?",
+      "respostes": [
+        {
+          "text": "Un conjunt de píxels",
+          "img_path": "ruta_imatge_resposta1.jpg"
+        },
+        {
+          "text": "Un bloc de text",
+          "img_path": "ruta_imatge_resposta2.jpg"
+        }
+      ],
+      "resposta_correcta": "A"
+    }
+    // Altres preguntes aquí...
+  ]
+}
