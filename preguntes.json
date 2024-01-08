@@ -1,0 +1,27 @@
+[
+    {
+        "pregunta": "Qüestió 1: La tensió de ruptura d’un llautó és 550 MPa. Quina força axial cal per a provocar el trencament d’un eix massís de 6 mm de diàmetre?",
+        "opcions": ["10,37 kN", "15,55 kN", "19,80 kN", "62,20 kN"],
+        "resposta": "a"
+    },
+    {
+        "pregunta": "Qüestió 2: En una línia de producció hi ha tres estacions i les operacions que es duen a terme sobre cada unitat produïda requereixen, respectivament, 15 s, 30 s i 20 s. En règim estacionari i amb la línia funcionant a màxim rendiment, cada quants segons surt una unitat de la línia?",
+        "opcions": ["20 s", "30 s", "15 s", "65 s"],
+        "resposta": "c"
+    },
+    {
+        "pregunta": "Qüestió 3: Quina és la fórmula química de l'aigua?",
+        "opcions": ["H2O", "O2", "CO2", "CH4"],
+        "resposta": "a"
+    },
+    {
+        "pregunta": "Qüestió 4: Quin és el valor de pi amb tres decimals?",
+        "opcions": ["3,141", "3,142", "3,143", "3,144"],
+        "resposta": "b"
+    },
+    {
+        "pregunta": "Qüestió 5: Quin és el nom del president de la Generalitat de Catalunya?",
+        "opcions": ["Pere Aragonès", "Carles Puigdemont", "Quim Torra", "Miquel Iceta"],
+        "resposta": "a"
+    }
+]
