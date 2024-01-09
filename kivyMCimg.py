@@ -5,7 +5,6 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.scrollview import ScrollView
-from kivy.properties import ListProperty
 from kivy.uix.popup import Popup
 
 class PreguntaApp(App):
@@ -54,6 +53,11 @@ class PreguntaApp(App):
 
     def comprovar_respostes(self, instance):
         respostes_seleccionades = [btn.state == 'down' for btn in instance.parent.children[:-1]]
+        
+        for resposta_seleccionada, correcta, btn in zip(respostes_seleccionades, self.respostes_correctes, instance.parent.children[:-1]):
+            if resposta_seleccionada == (correcta == "A"):
+                btn.background_color = (0, 1, 0, 1) if resposta_seleccionada else (1, 0, 0, 1)
+        
         num_correctes = sum([1 for seleccionada, correcta in zip(respostes_seleccionades, self.respostes_correctes) if seleccionada == (correcta == "A")])
 
         popup_content = Label(text=f'Has encertat {num_correctes} de {len(self.respostes_correctes)} preguntes.')
