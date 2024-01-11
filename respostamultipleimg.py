@@ -1,8 +1,13 @@
-
-
 import tkinter as tk
 from tkinter import messagebox
 from PIL import ImageTk, Image
+
+def aplicar_justificat_widgets(parent):
+    for widget in parent.winfo_children():
+        if isinstance(widget, tk.Label):
+            widget.config(anchor="w")
+        elif isinstance(widget, tk.Frame) or isinstance(widget, tk.Toplevel) or isinstance(widget, tk.Tk):
+            aplicar_justificat_widgets(widget)
 
 preguntes = [
     ("Qüestió 1: La tensió de ruptura d’un llautó és 550 MPa. Quina força axial cal per a provocar el trencament d’un eix massís de 6 mm de diàmetre?",
@@ -36,8 +41,6 @@ preguntes = [
      ["Tortuga", "Elefante", "Pinguino", "Gallo"],
      "a")
 ]
-
-
 def comprovar_respostes(respostes_correctes, respostes_seleccionades, labels_respostes):
     colors = []
     correctes = []
@@ -101,18 +104,43 @@ for i, pregunta_info in enumerate(preguntes):
 
     respostes_correctes.append(resposta_correcta)
 
-# Función para mostrar la imagen
-def mostrar_imagen1():
-    ruta_imagen = "io.png"  # Ruta de la imagen original
-    imagen = Image.open(ruta_imagen)
-    imagen = imagen.resize((200, 200), Image.LANCZOS)  # Cambiar el tamaño de la imagen
-    imagen = ImageTk.PhotoImage(imagen)
+def mostrar_imagen(datos_imagenes):
+    for datos in datos_imagenes:
+        ruta_imagen = datos['ruta']
+        x = datos['x']
+        y = datos['y']
+        resizex = datos['resizex']
+        resizey = datos['resizey']
+        
+        imagen = Image.open(ruta_imagen)
+        imagen = imagen.resize((resizex, resizey), Image.LANCZOS)
+        imagen = ImageTk.PhotoImage(imagen)
+        
+        label_imagen = tk.Label(frame, image=imagen)
+        label_imagen.image = imagen
+        label_imagen.place(x=x, y=y)
 
-    label_imagen = tk.Label(frame, image=imagen)
-    label_imagen.image = imagen
-    label_imagen.place(x=500, y=350)  # Posición de la esquina superior izquierda del widget
-# Llamada a la función para mostrar la imagen (puedes llamarla en el lugar que prefieras)
-mostrar_imagen1()
+
+# Datos de ejemplo con las imágenes, ubicaciones y tamaños
+datos_imagenes = [
+    {
+        'ruta': 'io.png',
+        'x': 550,
+        'y': 250,
+        'resizex': 200,
+        'resizey': 200
+    },
+    {
+        'ruta': 'jupiter.png',
+        'x': 550,
+        'y': 450,
+        'resizex': 150,
+        'resizey': 150
+    }
+]
+
+# Llamada a la función para mostrar las imágenes
+mostrar_imagen(datos_imagenes)
 
 btn_comprovar = tk.Button(frame, text="Comprovar respostes", command=lambda: comprovar_respostes(respostes_correctes, respostes_seleccionades, labels_respostes))
 btn_comprovar.pack()
