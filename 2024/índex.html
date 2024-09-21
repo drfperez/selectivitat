@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Problemes de Tecnologia i Enginyeria</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+    <script src="questions.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <!--style>
+        .ocult { display: none; }
+        .visible { display: block; }
+        .correcta { color: green; }
+        .incorrecta { color: red; }
+        .solution-button { margin-top: 10px; }
+    </style-->
+</head>
+<body>
+    <h2>Problemes de Tecnologia i Enginyeria: Test</h2>
+
+    <label for="type-select">Tipus de preguntes:</label>
+    <select id="type-select" onchange="renderQuiz()">
+        <option value="totes">Totes</option>
+        <option value="questions">Qüestions</option>
+        <option value="exercicis">Exercicis</option>
+    </select>
+
+    <label for="category-select">Tria una categoria:</label>
+    <select id="category-select" onchange="renderQuiz()">
+        <option value="tot">Tot</option>
+        <option value="energia">Energia</option>
+        <option value="materials">Materials</option>
+    </select>
+
+    <div id="quiz-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            renderQuiz();
+        });
+
+        function renderQuiz() {
+            const quizContainer = document.getElementById("quiz-container");
+            const selectedCategory = document.getElementById("category-select").value;
+            const selectedType = document.getElementById("type-select").value;
+
+            quizContainer.innerHTML = '';
+
+            const filteredQuestions = questions.map((q, originalIndex) => ({...q, originalIndex})).filter(q => {
+                const categoryMatch = selectedCategory === 'tot' || q.category === selectedCategory;
+                const typeMatch = selectedType === 'totes' || q.type === selectedType;
+                return categoryMatch && typeMatch;
+            });
+
+            filteredQuestions.forEach((q, filteredIndex) => {
+                const questionDiv = document.createElement("div");
+
+                if (q.type === 'exercicis') {
+                    questionDiv.innerHTML = `
+                        <p><strong>Exercici ${q.originalIndex + 1}:</strong> ${q.text}</p>
+                        <div id="result${q.originalIndex}" class="ocult">
+                            <p><strong>Solució pas a pas:</strong></p>
+                            <p id="steps${q.originalIndex}">${q.steps}</p>
+                            ${q.answerImage ? `<img src="${q.answerImage}" alt="Imatge de la resposta" style="max-width: 100%; height: auto;">` : ''}
+                        </div>
+                        <button class="solution-button" onclick="toggleSolution(${q.originalIndex}, this)">Mostra solució</button>
+                    `;
+                } else if (q.type === 'questions') {
+                    questionDiv.innerHTML = `
+                        <p><strong>Qüestió ${q.originalIndex + 1}:</strong> ${q.text}</p>
+                        ${q.images ? `<div>${q.images}</div>` : ''}
+                        ${generateOptions(q.options, q.originalIndex, q.correctAnswer)}
+                        <div id="result${q.originalIndex}" class="ocult">
+                            <p id="answer${q.originalIndex}"></p>
+                            <p><strong>Solució pas a pas:</strong></p>
+                            <p id="steps${q.originalIndex}">${q.steps}</p>
+                            ${q.answerImage ? `<img src="${q.answerImage}" alt="Imatge de la resposta" style="max-width: 100%; height: auto;">` : ''}
+                        </div>
+                        <button class="solution-button" onclick="toggleSolution(${q.originalIndex}, this)" style="display: none;">Mostra solució</button>
+                    `;
+                }
+                quizContainer.appendChild(questionDiv);
+            });
+
+            MathJax.typesetPromise();
+        }
+
+        function generateOptions(options, originalIndex, correctAnswer) {
+            return `<ul>
+                        ${options.map((option, optionIndex) => `
+                            <li>
+                                <span class="option-letter">${option.value.toUpperCase()}</span>
+                                <button onclick="checkAnswer('${option.value}', '${correctAnswer}', 'answer${originalIndex}', 'steps${originalIndex}', 'result${originalIndex}')">
+                                    ${option.text}
+                                </button>
+                            </li>`).join('')}
+                    </ul>`;
+        }
+
+        function checkAnswer(selected, correctAnswer, answerId, stepsId, resultId) {
+            const answerElement = document.getElementById(answerId);
+            const stepsElement = document.getElementById(stepsId);
+            const resultElement = document.getElementById(resultId);
+
+            if (selected.trim().toLowerCase() === correctAnswer.trim().toLowerCase()) {
+                answerElement.innerHTML = "<span class='correcta'>Correcte! Has seleccionat la resposta correcta.</span>";
+            } else {
+                answerElement.innerHTML = `<span class='incorrecta'>Incorrecte. La resposta correcta és ${correctAnswer.toUpperCase()}.</span>`;
+            }
+
+            resultElement.classList.add('visible');
+            stepsElement.innerHTML = questions.find((q, i) => `steps${i}` === stepsId).steps;
+
+            MathJax.typesetPromise();
+
+            // Mostra el botó "Mostra solució" només per a les qüestions
+            const button = resultElement.previousElementSibling;
+            if (button && button.classList.contains('solution-button')) {
+                button.style.display = 'block';
+            }
+        }
+
+        async function toggleSolution(index, button) {
+            const resultDiv = document.getElementById(`result${index}`);
+            const isVisible = resultDiv.classList.contains('visible');
+
+            if (isVisible) {
+                resultDiv.classList.remove('visible');
+                resultDiv.classList.add('ocult');
+                button.textContent = 'Mostra solució';
+            } else {
+                resultDiv.classList.remove('ocult');
+                resultDiv.classList.add('visible');
+                button.textContent = 'Amaga solució';
+            }
+
+            await MathJax.typesetPromise();
+        }
+    </script>
+</body>
+</html>
