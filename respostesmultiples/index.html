@@ -119,8 +119,7 @@ footer {
     <span class="mode-toggle" onclick="toggleMode()">🌞</span>
 </header>
 
-<main id="quiz">
-</main>
+<main id="quiz"></main>
 
 <footer>
     &copy; 2025 Nom Alumne
@@ -148,10 +147,26 @@ function showSetupMenu() {
     quiz.innerHTML = `
     <div class="setup-card">
         <h3>Configuració del test</h3>
+
+        <p><strong>Tria categories:</strong></p>
+        <div id="catSelect">
+            <label><input type="checkbox" value="Energia" checked> Energia</label><br>
+            <label><input type="checkbox" value="Materials i assaigs" checked> Materials i assaigs</label><br>
+            <label><input type="checkbox" value="Metrologia i normalització" checked> Metrologia i normalització</label><br>
+            <label><input type="checkbox" value="Sistemes pneumàtics i oleohidràulics" checked> Sistemes pneumàtics i oleohidràulics</label><br>
+            <label><input type="checkbox" value="Motors reductors" checked> Motors reductors</label><br>
+            <label><input type="checkbox" value="Principis de les màquines" checked> Principis de les màquines</label><br>
+            <label><input type="checkbox" value="Màquines i sistemes elèctrics i electrotècnics" checked> Màquines i sistemes elèctrics i electrotècnics</label><br>
+            <label><input type="checkbox" value="Control lògic i funcions lògiques" checked> Control lògic i funcions lògiques</label><br>
+            <label><input type="checkbox" value="Organització industrial" checked> Organització industrial</label><br>
+        </div><br>
+
         <label>Nombre de preguntes (màx. 20):</label>
         <input id="qNumber" type="number" min="1" value="10" style="width:80px"><br><br>
+
         <label>Temps total en minuts:</label>
         <input id="qTime" type="number" min="1" value="10" style="width:80px"><br><br>
+
         <button id="start-btn" onclick="startQuiz()">Començar</button>
     </div>`;
 }
@@ -159,12 +174,23 @@ function showSetupMenu() {
 async function startQuiz() {
     const response = await fetch('preguntes.json');
     const data = await response.json();
+    
     const qNum = parseInt(document.getElementById('qNumber').value);
     const qTime = parseInt(document.getElementById('qTime').value);
 
     timeLeft = qTime * 60;
 
-    selectedQuestions = shuffle(data).slice(0, qNum);
+    const selectedCats = [...document.querySelectorAll('#catSelect input:checked')]
+        .map(c => c.value);
+
+    const filteredQuestions = data.filter(q => selectedCats.includes(q.categoria));
+
+    if(filteredQuestions.length === 0){
+        alert('Cap pregunta disponible amb les categories escollides!');
+        return;
+    }
+
+    selectedQuestions = shuffle(filteredQuestions).slice(0, qNum);
     totalQuestions = selectedQuestions.length;
 
     loadQuestions();
@@ -179,7 +205,7 @@ function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
         updateTimerDisplay();
-        if(timeLeft <= 0) {
+        if(timeLeft <= 0){
             clearInterval(timerInterval);
             finishQuiz();
         }
@@ -231,7 +257,7 @@ function loadQuestions() {
             btn.textContent = r.text;
             btn.onclick = () => {
                 if(btn.disabled) return;
-                if(r.correcta) {
+                if(r.correcta){
                     btn.classList.add('correct');
                     score++;
                 } else {
@@ -242,7 +268,7 @@ function loadQuestions() {
                 answered++;
                 document.getElementById('score').textContent = `Puntuació: ${score}/${totalQuestions}`;
                 document.getElementById('progress').style.width = `${(answered/totalQuestions)*100}%`;
-                if(answered === totalQuestions) {
+                if(answered === totalQuestions){
                     clearInterval(timerInterval);
                     finishQuiz();
                 }
@@ -257,4 +283,3 @@ function loadQuestions() {
 </body>
 </html>
 
-  
