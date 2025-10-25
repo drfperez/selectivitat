@@ -1,182 +1,204 @@
 [
   {
-    "pregunta": "Quina és la funció principal d’un díode?",
+    "pregunta": "Quina és la unitat de potència al SI?",
+    "categoria": "Energia",
     "respostes": [
-      {"text": "Permetre el pas del corrent en una sola direcció", "correcta": true, "feedback": "Exacte! És un component unidireccional."},
-      {"text": "Emmagatzemar càrrega", "correcta": false, "feedback": "Això és un condensador."},
-      {"text": "Refredar el circuit", "correcta": false, "feedback": "Això ho fan disipadors, no díodes."},
-      {"text": "Convertir corrent altern en llum", "correcta": false, "feedback": "Només alguns díodes especials com els LED ho fan."}
+      {"text": "Watt (W)", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Joule (J)", "correcta": false, "feedback": "El Joule és energia."},
+      {"text": "Newton (N)", "correcta": false, "feedback": "Newton és força."},
+      {"text": "Pascal (Pa)", "correcta": false, "feedback": "El Pascal és unitat de pressió."}
     ]
   },
   {
-    "pregunta": "Quin protocol s’utilitza habitualment per connectar sensors a microcontroladors?",
+    "pregunta": "Com es defineix l’energia cinètica?",
+    "categoria": "Energia",
     "respostes": [
-      {"text": "I2C", "correcta": true, "feedback": "Correcte! És un protocol de comunicació molt comú per sensors."},
-      {"text": "HDMI", "correcta": false, "feedback": "HDMI és per vídeo digital."},
-      {"text": "VGA", "correcta": false, "feedback": "VGA és un connector de vídeo antic."},
-      {"text": "FM", "correcta": false, "feedback": "FM és una modulació de ràdio."}
+      {"text": "1/2 m v²", "correcta": true, "feedback": "Exacte!"},
+      {"text": "m g h", "correcta": false, "feedback": "Això és energia potencial."},
+      {"text": "F * d", "correcta": false, "feedback": "Això és treball mecànic."},
+      {"text": "P * t", "correcta": false, "feedback": "Això és energia relacionada amb potència."}
     ]
   },
   {
-    "pregunta": "Què indica la velocitat d’un processador en GHz?",
+    "pregunta": "Quina magnitud s’obté multiplicant la potència per el temps?",
+    "categoria": "Energia",
     "respostes": [
-      {"text": "Freqüència de treball", "correcta": true, "feedback": "Exacte! Defineix la velocitat de càlcul."},
-      {"text": "Quantitat de memòria", "correcta": false, "feedback": "La memòria es mesura en GB."},
-      {"text": "Consum energètic", "correcta": false, "feedback": "El consum s’expressa en watts."},
-      {"text": "Nombre de nuclis", "correcta": false, "feedback": "Els nuclis es compten, no es mesuren en GHz."}
+      {"text": "Energia", "correcta": true, "feedback": "Correcte! Energia = Potència × Temps."},
+      {"text": "Força", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Pressió", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Corrent elèctric", "correcta": false, "feedback": "No té relació directa."}
+    ]
+  },
+  
+  {
+  "pregunta": "De què depèn l’energia cinètica d’un cos?",
+  "categoria": "Energia",
+  "respostes": [
+    {"text": "De la massa i de la velocitat", "correcta": true, "feedback": "Correcte! L’energia cinètica és proporcional a la massa i al quadrat de la velocitat."},
+    {"text": "Només de la massa", "correcta": false, "feedback": "No és correcte. També depèn de la velocitat."},
+    {"text": "Només de la temperatura", "correcta": false, "feedback": "La temperatura no intervé directament en el càlcul d’energia cinètica macroscòpica."},
+    {"text": "De la pressió atmosfèrica", "correcta": false, "feedback": "No és un factor rellevant per a l’energia cinètica."} 
+  
+]},
+  
+  {
+    "pregunta": "Quin material s’utilitza sovint per a assaigs de tracció?",
+    "categoria": "Materials i assaigs",
+    "respostes": [
+      {"text": "Acer", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Vidre", "correcta": false, "feedback": "És fràgil per a aquests assaigs."},
+      {"text": "Fusta", "correcta": false, "feedback": "No és habitual en assaigs estàndard."},
+      {"text": "Formigó", "correcta": false, "feedback": "S’assaja més sovint a compressió."}
     ]
   },
   {
-    "pregunta": "Quin material és un bon aïllant elèctric?",
+    "pregunta": "Quina propietat mesura la duresa Brinell?",
+    "categoria": "Materials i assaigs",
     "respostes": [
-      {"text": "Plàstic", "correcta": true, "feedback": "Sí! S’utilitza molt com a aïllant."},
-      {"text": "Coure", "correcta": false, "feedback": "El coure és un excel·lent conductor."},
-      {"text": "Alumini", "correcta": false, "feedback": "També és conductor."},
-      {"text": "Ferro", "correcta": false, "feedback": "És conductor i magnètic."}
+      {"text": "Resistència a la penetració", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Elasticitat", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Conductivitat tèrmica", "correcta": false, "feedback": "No hi té relació."},
+      {"text": "Densitat", "correcta": false, "feedback": "No és correcte."}
     ]
   },
   {
-    "pregunta": "Quina és la funció d’un condensador?",
+    "pregunta": "Què mesura un micròmetre?",
+    "categoria": "Metrologia i normalització",
     "respostes": [
-      {"text": "Emmagatzemar energia temporalment", "correcta": true, "feedback": "Correcte! Acumula càrrega elèctrica."},
-      {"text": "Generar senyals", "correcta": false, "feedback": "Això ho fan altres components com els oscil·ladors."},
-      {"text": "Refredar el circuit", "correcta": false, "feedback": "Això no és feina seva."},
-      {"text": "Mesurar corrent", "correcta": false, "feedback": "Això ho fan els amperímetres."}
+      {"text": "Diàmetre amb alta precisió", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Pes", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Temperatura", "correcta": false, "feedback": "No és la seva funció."},
+      {"text": "Pressió", "correcta": false, "feedback": "No és correcte."}
     ]
   },
   {
-    "pregunta": "Quin robot s’utilitza sovint en línies d’assemblatge industrial?",
+    "pregunta": "Què indica una norma ISO?",
+    "categoria": "Metrologia i normalització",
     "respostes": [
-      {"text": "Robot articulat", "correcta": true, "feedback": "Sí! Té alta flexibilitat per moviments complexos."},
-      {"text": "Robot aspiradora", "correcta": false, "feedback": "Aquest treballa a casa, no a la fàbrica."},
-      {"text": "Drone quadcòpter", "correcta": false, "feedback": "S’utilitza en altres aplicacions, no en assemblatge."},
-      {"text": "Robot humanoide", "correcta": false, "feedback": "Són poc comuns en la indústria actual."}
+      {"text": "Estàndards internacionals", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Una marca comercial", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Un material específic", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Una mesura de longitud", "correcta": false, "feedback": "No és correcte."}
     ]
   },
   {
-    "pregunta": "Quina part del sistema informàtic es defineix com el 'cervell' de l’ordinador?",
+    "pregunta": "Quina força fa moure un sistema pneumàtic?",
+    "categoria": "Sistemes pneumàtics i oleohidràulics",
     "respostes": [
-      {"text": "CPU", "correcta": true, "feedback": "Exacte! La CPU controla i processa les dades."},
-      {"text": "Disc dur", "correcta": false, "feedback": "El disc dur només emmagatzema informació."},
-      {"text": "GPU", "correcta": false, "feedback": "La GPU és el cervell només dels gràfics."},
-      {"text": "Font d’alimentació", "correcta": false, "feedback": "Només proporciona energia."}
+      {"text": "Pressió de gas comprimit", "correcta": true, "feedback": "Exacte!"},
+      {"text": "Corrent elèctric", "correcta": false, "feedback": "Incorrecte."},
+      {"text": "Força magnètica", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Gravetat", "correcta": false, "feedback": "No fa moure els pistons activament."}
     ]
   },
   {
-    "pregunta": "Quina tecnologia de comunicació sense fils s’utilitza habitualment per dispositius de curta distància?",
+    "pregunta": "En un sistema oleohidràulic, quin fluid s’utilitza?",
+    "categoria": "Sistemes pneumàtics i oleohidràulics",
     "respostes": [
-      {"text": "Bluetooth", "correcta": true, "feedback": "Correcte! Ideal per connexions a pocs metres."},
-      {"text": "GPS", "correcta": false, "feedback": "GPS serveix per geolocalització."},
-      {"text": "4G", "correcta": false, "feedback": "4G és per xarxes de telefonia mòbil."},
-      {"text": "Satèl·lit", "correcta": false, "feedback": "Això és per comunicacions a llarga distància."}
+      {"text": "Oli hidràulic", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Aigua", "correcta": false, "feedback": "No és habitual per raons de corrosió."},
+      {"text": "Gas comprimit", "correcta": false, "feedback": "Aquest és propi de sistemes pneumàtics."},
+      {"text": "Vapor", "correcta": false, "feedback": "No s’utilitza en aquests circuits."}
     ]
   },
   {
-    "pregunta": "Quin paràmetre defineix la capacitat d’una bateria?",
+    "pregunta": "Quin tipus de motor disminueix la velocitat augmentant el parell?",
+    "categoria": "Motors reductors",
     "respostes": [
-      {"text": "mAh", "correcta": true, "feedback": "Exacte! Indica la quantitat de càrrega elèctrica disponible."},
-      {"text": "GHz", "correcta": false, "feedback": "Això és per processadors."},
-      {"text": "Hz", "correcta": false, "feedback": "Això mesura freqüència."},
-      {"text": "Ω", "correcta": false, "feedback": "Això mesura resistència."}
+      {"text": "Motor reductor", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Motor síncron", "correcta": false, "feedback": "No té aquesta funció."},
+      {"text": "Motor lineal", "correcta": false, "feedback": "No serveix per reduir velocitat."},
+      {"text": "Motor universal", "correcta": false, "feedback": "No és correcte."}
     ]
   },
   {
-    "pregunta": "Quin sensor es fa servir per detectar moviment?",
+    "pregunta": "Quin component té engranatges per reduir velocitat?",
+    "categoria": "Motors reductors",
     "respostes": [
-      {"text": "Sensor PIR", "correcta": true, "feedback": "Correcte! Detecta canvi de radiació infraroja, útil per moviment."},
-      {"text": "Sensor d’humitat", "correcta": false, "feedback": "Mesura humitat, no moviment."},
-      {"text": "Sensor de llum LDR", "correcta": false, "feedback": "Mesura intensitat lumínica."},
-      {"text": "Sensor de pressió", "correcta": false, "feedback": "Mesura forces, no moviment directe."}
-      ]
-  },
-  {
-    "pregunta": "Quin component s'utilitza per emmagatzemar dades de manera no volàtil?",
-    "respostes": [
-      {"text": "RAM", "correcta": false, "feedback": "La RAM és volàtil, es perd quan apagues l'ordinador."},
-      {"text": "ROM", "correcta": true, "feedback": "Correcte! La ROM emmagatzema dades de manera permanent."},
-      {"text": "CPU", "correcta": false, "feedback": "La CPU processa informació, no l'emmagatzema."},
-      {"text": "GPU", "correcta": false, "feedback": "La GPU s'encarrega del gràfic, no de l'emmagatzematge."}
+      {"text": "Caixa reductora", "correcta": true, "feedback": "Exactament!"},
+      {"text": "Generador", "correcta": false, "feedback": "No redueix velocitat."},
+      {"text": "Transformador", "correcta": false, "feedback": "Només canvia la tensió elèctrica."},
+      {"text": "Ventilador", "correcta": false, "feedback": "No hi té relació."}
     ]
   },
   {
-    "pregunta": "Quina llei descriu la relació entre tensió, corrent i resistència?",
+    "pregunta": "Quina és la llei bàsica de les palanques?",
+    "categoria": "Principis de les màquines",
     "respostes": [
-      {"text": "Llei d'Ohm", "correcta": true, "feedback": "Correcte! U = R * I."},
-      {"text": "Llei de Faraday", "correcta": false, "feedback": "Faraday descriu l'inducció electromagnètica."},
-      {"text": "Llei de Newton", "correcta": false, "feedback": "Newton parla de moviment, no d'electricitat."},
-      {"text": "Llei de Kirchhoff", "correcta": false, "feedback": "Kirchhoff descriu corrents i tensions en circuits tancats."}
+      {"text": "F1*L1 = F2*L2", "correcta": true, "feedback": "Correcte!"},
+      {"text": "E = m c²", "correcta": false, "feedback": "És física relativista."},
+      {"text": "P * A = F", "correcta": false, "feedback": "Això és la llei de Pascal."},
+      {"text": "V = IR", "correcta": false, "feedback": "És la llei d’Ohm."}
     ]
   },
   {
-    "pregunta": "Quin tipus de motor es controla més fàcilment amb un Arduino?",
+    "pregunta": "Quina és la funció principal d’una politja?",
+    "categoria": "Principis de les màquines",
     "respostes": [
-      {"text": "Motor pas a pas", "correcta": true, "feedback": "Correcte! Es pot controlar amb passos precisos."},
-      {"text": "Motor dièsel", "correcta": false, "feedback": "Un motor dièsel no és controlable amb Arduino."},
-      {"text": "Motor d'explosió", "correcta": false, "feedback": "Igual que el dièsel, no és adequat."},
-      {"text": "Motor hidràulic", "correcta": false, "feedback": "Necessita sistemes mecànics externs, no directe Arduino."}
+      {"text": "Canviar direcció o amplificar força", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Generar energia elèctrica", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Reduir fricció", "correcta": false, "feedback": "No és la seva funció principal."},
+      {"text": "Augmentar la temperatura", "correcta": false, "feedback": "Incorrecte."}
     ]
   },
   {
-    "pregunta": "Quina és la unitat de la resistència elèctrica?",
+    "pregunta": "Quin component elèctric transforma energia elèctrica en mecànica?",
+    "categoria": "Màquines i sistemes elèctrics i electrotècnics",
     "respostes": [
-      {"text": "Ohm", "correcta": true, "feedback": "Correcte! Es simbolitza amb Ω."},
-      {"text": "Volt", "correcta": false, "feedback": "El volt és la unitat de tensió."},
-      {"text": "Ampere", "correcta": false, "feedback": "L'ampere mesura corrent."},
-      {"text": "Watt", "correcta": false, "feedback": "El watt mesura potència, no resistència."}
+      {"text": "Motor elèctric", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Resistor", "correcta": false, "feedback": "Només dissipa energia."},
+      {"text": "Transformador", "correcta": false, "feedback": "Només canvia la tensió."},
+      {"text": "Interruptor", "correcta": false, "feedback": "Només obre o tanca un circuit."}
     ]
   },
   {
-    "pregunta": "Quina tecnologia s'utilitza per crear prototips ràpids d'objectes físics?",
+    "pregunta": "Quina funció fa un transformador?",
+    "categoria": "Màquines i sistemes elèctrics i electrotècnics",
     "respostes": [
-      {"text": "Impressió 3D", "correcta": true, "feedback": "Correcte! L'impression 3D crea objectes capa per capa."},
-      {"text": "PCB", "correcta": false, "feedback": "El PCB és per circuits, no per prototips físics generals."},
-      {"text": "Arduino", "correcta": false, "feedback": "Arduino és per controlar circuits, no per prototips físics."},
-      {"text": "CAD", "correcta": false, "feedback": "El CAD és disseny, però no imprimeix físicament."}
+      {"text": "Modificar el nivell de tensió", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Convertir energia mecànica", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Emmagatzemar càrrega elèctrica", "correcta": false, "feedback": "Això ho fa un condensador."},
+      {"text": "Regular intensitat", "correcta": false, "feedback": "No és la seva funció directa."}
     ]
   },
   {
-    "pregunta": "Quina és la funció d'un transistor?",
+    "pregunta": "Quina funció fa un PLC?",
+    "categoria": "Control lògic i funcions lògiques",
     "respostes": [
-      {"text": "Amplificar o commutar corrent", "correcta": true, "feedback": "Correcte! Aquesta és la seva funció principal."},
-      {"text": "Emmagatzemar dades", "correcta": false, "feedback": "Això ho fan memòries, no transistors."},
-      {"text": "Mesurar tensió", "correcta": false, "feedback": "Això ho fa un multímetre."},
-      {"text": "Generar so", "correcta": false, "feedback": "Els transistors no generen so directament."}
+      {"text": "Control de processos automatitzats", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Mesurar longitud", "correcta": false, "feedback": "Incorrecte."},
+      {"text": "Filtrar aire", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Subministrar energia", "correcta": false, "feedback": "No és la seva funció."}
     ]
   },
   {
-    "pregunta": "Quina energia converteix un panell solar?",
+    "pregunta": "Què representa un 1 lògic en un circuit digital?",
+    "categoria": "Control lògic i funcions lògiques",
     "respostes": [
-      {"text": "Llum en electricitat", "correcta": true, "feedback": "Correcte! Convertim energia solar en corrent elèctric."},
-      {"text": "Electricitat en calor", "correcta": false, "feedback": "Això ho fa una resistència elèctrica."},
-      {"text": "Gas en electricitat", "correcta": false, "feedback": "No és el funcionament dels panells solars."},
-      {"text": "Vapor en moviment", "correcta": false, "feedback": "Això és una turbina de vapor."}
+      {"text": "Un senyal actiu (nivell alt)", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Absència de tensió", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Una fallada del sistema", "correcta": false, "feedback": "Incorrecte."},
+      {"text": "Un valor negatiu", "correcta": false, "feedback": "No és així."}
     ]
   },
   {
-    "pregunta": "Quina propietat caracteritza un material conductor?",
+    "pregunta": "Què és lean manufacturing?",
+    "categoria": "Organització industrial",
     "respostes": [
-      {"text": "Permet el pas de corrent", "correcta": true, "feedback": "Correcte! Els conductors faciliten el flux elèctric."},
-      {"text": "No permet el pas de corrent", "correcta": false, "feedback": "Això és un aïllant."},
-      {"text": "Es deforma fàcilment", "correcta": false, "feedback": "La deformació és mecànica, no elèctrica."},
-      {"text": "Emmagatzema energia", "correcta": false, "feedback": "Això és la funció d'un condensador."}
+      {"text": "Sistema de producció eficient", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Tipus de motor", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Mètode de pintura industrial", "correcta": false, "feedback": "No té relació."},
+      {"text": "Norma de seguretat", "correcta": false, "feedback": "No és correcte."}
     ]
   },
   {
-    "pregunta": "Quin dispositiu s'utilitza per mesurar tensió?",
+    "pregunta": "Quin és l’objectiu principal del just-in-time?",
+    "categoria": "Organització industrial",
     "respostes": [
-      {"text": "Multímetre", "correcta": true, "feedback": "Correcte! Permet mesurar tensió, corrent i resistència."},
-      {"text": "Oscil·loscopi", "correcta": false, "feedback": "Mesura senyals, però no és tan directe com el multímetre."},
-      {"text": "Sensor de temperatura", "correcta": false, "feedback": "Mesura calor, no tensió."},
-      {"text": "Potenciòmetre", "correcta": false, "feedback": "Controla resistència variable, no mesura directament tensió."}
-    ]
-  },
-  {
-    "pregunta": "Quin element es fa servir per controlar un circuit digital?",
-    "respostes": [
-      {"text": "Microcontrolador", "correcta": true, "feedback": "Correcte! Controla circuits digitals amb programes."},
-      {"text": "Resistència", "correcta": false, "feedback": "Només limita corrent, no controla lògica."},
-      {"text": "LED", "correcta": false, "feedback": "Només indica estats, no controla circuits."},
-      {"text": "Condensador", "correcta": false, "feedback": "Emmagatzema energia temporalment, no controla lògica."}
+      {"text": "Reduir estocs i temps d’espera", "correcta": true, "feedback": "Correcte!"},
+      {"text": "Augmentar els costos de magatzem", "correcta": false, "feedback": "Just al contrari."},
+      {"text": "Fabricar més productes del necessari", "correcta": false, "feedback": "No és correcte."},
+      {"text": "Disminuir la qualitat", "correcta": false, "feedback": "No és cert."}
     ]
   }
 ]
