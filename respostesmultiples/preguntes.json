@@ -1,0 +1,92 @@
+[
+  {
+    "pregunta": "Quin component s'utilitza per emmagatzemar dades de manera no volàtil?",
+    "respostes": [
+      {"text": "RAM", "correcta": false, "feedback": "La RAM és volàtil, es perd quan apagues l'ordinador."},
+      {"text": "ROM", "correcta": true, "feedback": "Correcte! La ROM emmagatzema dades de manera permanent."},
+      {"text": "CPU", "correcta": false, "feedback": "La CPU processa informació, no l'emmagatzema."},
+      {"text": "GPU", "correcta": false, "feedback": "La GPU s'encarrega del gràfic, no de l'emmagatzematge."}
+    ]
+  },
+  {
+    "pregunta": "Quina llei descriu la relació entre tensió, corrent i resistència?",
+    "respostes": [
+      {"text": "Llei d'Ohm", "correcta": true, "feedback": "Correcte! U = R * I."},
+      {"text": "Llei de Faraday", "correcta": false, "feedback": "Faraday descriu l'inducció electromagnètica."},
+      {"text": "Llei de Newton", "correcta": false, "feedback": "Newton parla de moviment, no d'electricitat."},
+      {"text": "Llei de Kirchhoff", "correcta": false, "feedback": "Kirchhoff descriu corrents i tensions en circuits tancats."}
+    ]
+  },
+  {
+    "pregunta": "Quin tipus de motor es controla més fàcilment amb un Arduino?",
+    "respostes": [
+      {"text": "Motor pas a pas", "correcta": true, "feedback": "Correcte! Es pot controlar amb passos precisos."},
+      {"text": "Motor dièsel", "correcta": false, "feedback": "Un motor dièsel no és controlable amb Arduino."},
+      {"text": "Motor d'explosió", "correcta": false, "feedback": "Igual que el dièsel, no és adequat."},
+      {"text": "Motor hidràulic", "correcta": false, "feedback": "Necessita sistemes mecànics externs, no directe Arduino."}
+    ]
+  },
+  {
+    "pregunta": "Quina és la unitat de la resistència elèctrica?",
+    "respostes": [
+      {"text": "Ohm", "correcta": true, "feedback": "Correcte! Es simbolitza amb Ω."},
+      {"text": "Volt", "correcta": false, "feedback": "El volt és la unitat de tensió."},
+      {"text": "Ampere", "correcta": false, "feedback": "L'ampere mesura corrent."},
+      {"text": "Watt", "correcta": false, "feedback": "El watt mesura potència, no resistència."}
+    ]
+  },
+  {
+    "pregunta": "Quina tecnologia s'utilitza per crear prototips ràpids d'objectes físics?",
+    "respostes": [
+      {"text": "Impressió 3D", "correcta": true, "feedback": "Correcte! L'impression 3D crea objectes capa per capa."},
+      {"text": "PCB", "correcta": false, "feedback": "El PCB és per circuits, no per prototips físics generals."},
+      {"text": "Arduino", "correcta": false, "feedback": "Arduino és per controlar circuits, no per prototips físics."},
+      {"text": "CAD", "correcta": false, "feedback": "El CAD és disseny, però no imprimeix físicament."}
+    ]
+  },
+  {
+    "pregunta": "Quina és la funció d'un transistor?",
+    "respostes": [
+      {"text": "Amplificar o commutar corrent", "correcta": true, "feedback": "Correcte! Aquesta és la seva funció principal."},
+      {"text": "Emmagatzemar dades", "correcta": false, "feedback": "Això ho fan memòries, no transistors."},
+      {"text": "Mesurar tensió", "correcta": false, "feedback": "Això ho fa un multímetre."},
+      {"text": "Generar so", "correcta": false, "feedback": "Els transistors no generen so directament."}
+    ]
+  },
+  {
+    "pregunta": "Quina energia converteix un panell solar?",
+    "respostes": [
+      {"text": "Llum en electricitat", "correcta": true, "feedback": "Correcte! Convertim energia solar en corrent elèctric."},
+      {"text": "Electricitat en calor", "correcta": false, "feedback": "Això ho fa una resistència elèctrica."},
+      {"text": "Gas en electricitat", "correcta": false, "feedback": "No és el funcionament dels panells solars."},
+      {"text": "Vapor en moviment", "correcta": false, "feedback": "Això és una turbina de vapor."}
+    ]
+  },
+  {
+    "pregunta": "Quina propietat caracteritza un material conductor?",
+    "respostes": [
+      {"text": "Permet el pas de corrent", "correcta": true, "feedback": "Correcte! Els conductors faciliten el flux elèctric."},
+      {"text": "No permet el pas de corrent", "correcta": false, "feedback": "Això és un aïllant."},
+      {"text": "Es deforma fàcilment", "correcta": false, "feedback": "La deformació és mecànica, no elèctrica."},
+      {"text": "Emmagatzema energia", "correcta": false, "feedback": "Això és la funció d'un condensador."}
+    ]
+  },
+  {
+    "pregunta": "Quin dispositiu s'utilitza per mesurar tensió?",
+    "respostes": [
+      {"text": "Multímetre", "correcta": true, "feedback": "Correcte! Permet mesurar tensió, corrent i resistència."},
+      {"text": "Oscil·loscopi", "correcta": false, "feedback": "Mesura senyals, però no és tan directe com el multímetre."},
+      {"text": "Sensor de temperatura", "correcta": false, "feedback": "Mesura calor, no tensió."},
+      {"text": "Potenciòmetre", "correcta": false, "feedback": "Controla resistència variable, no mesura directament tensió."}
+    ]
+  },
+  {
+    "pregunta": "Quin element es fa servir per controlar un circuit digital?",
+    "respostes": [
+      {"text": "Microcontrolador", "correcta": true, "feedback": "Correcte! Controla circuits digitals amb programes."},
+      {"text": "Resistència", "correcta": false, "feedback": "Només limita corrent, no controla lògica."},
+      {"text": "LED", "correcta": false, "feedback": "Només indica estats, no controla circuits."},
+      {"text": "Condensador", "correcta": false, "feedback": "Emmagatzema energia temporalment, no controla lògica."}
+    ]
+  }
+]
