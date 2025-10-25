@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Càlcul fotovoltaic en in edifici</title>  <h2>Càlcul fotovoltaic en edifici</h2>
+  <style>
+    /* Estilització del formulari */
+    form {
+      width: 500px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="button"] {
+      width: 20%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+   
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+    /* Estilització del resultat */
+    #resultado {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+    }
+  </style>
+</head><body>
+  <form>
+    <label for="consumo">Consum mitjà en kW h/dia:</label><br>
+    <input type="text" id="consumo" name="consumo"><br>
+    <label for="dias_anio">Nombre de dies d'un any:</label><br>
+    <input type="text" id="dias_anio" name="dias_anio"><br>
+    <label for="potencia_placa">Potència de la placa en W:</label><br>
+    <input type="text" id="potencia_placa" name="potencia_placa"><br>
+    <label for="area_placa">Àrea efectiva de la placa en m²:</label><br>
+    <input type="text" id="area_placa" name="area_placa"><br>
+    <label for="intensidad_solar">Intensitat de radiació solar en W/m²:</label><br>
+    <input type="text" id="intensidad_solar" name="intensidad_solar"><br>
+    <label for="factor_emision">Factor d'emissió en g CO2/(kW h):</label><br>
+    <input type="text" id="factor_emision" name="factor_emision"><br>
+    <input type="button" value="Calcular" onclick="calcular()">
+  </form>
+  <br>
+  <div id="resultado"></div>
+
+  <script> 
+    function calcular() {
+      // Obtenir les dades introduïdes pel usuari
+      var consumo = document.getElementById("consumo").value;
+      var dias_anio = document.getElementById("dias_anio").value;
+      var potencia_placa = document.getElementById("potencia_placa").value;
+      var area_placa = document.getElementById("area_placa").value;
+      var intensidad_solar = document.getElementById("intensidad_solar").value;
+      var factor_emision = document.getElementById("factor_emision").value;
+      
+      // Calcular l'energia total consumida en un any a l'edifici municipal
+      var energia_consumida = consumo * dias_anio;
+      
+      // Calcular la potència que ha de subministrar la instaŀlació fotovoltaica
+      var potencia_foto = energia_consumida / 0.15;
+        // Mostrar els resultats
+  document.getElementById("resultado").innerHTML = "Energia total consumida en un any a l'edifici municipal: " + energia_consumida + " kW h<br>"
+                                                 + "Potència que ha de subministrar la instaŀlació fotovoltaica: " + potencia_foto + " kW<br>";
+}
+  </script>
+</body>
+</html>
+
+    
