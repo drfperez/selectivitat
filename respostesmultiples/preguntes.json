@@ -1,5 +1,95 @@
 [
   {
+    "pregunta": "Quina és la funció principal d’un díode?",
+    "respostes": [
+      {"text": "Permetre el pas del corrent en una sola direcció", "correcta": true, "feedback": "Exacte! És un component unidireccional."},
+      {"text": "Emmagatzemar càrrega", "correcta": false, "feedback": "Això és un condensador."},
+      {"text": "Refredar el circuit", "correcta": false, "feedback": "Això ho fan disipadors, no díodes."},
+      {"text": "Convertir corrent altern en llum", "correcta": false, "feedback": "Només alguns díodes especials com els LED ho fan."}
+    ]
+  },
+  {
+    "pregunta": "Quin protocol s’utilitza habitualment per connectar sensors a microcontroladors?",
+    "respostes": [
+      {"text": "I2C", "correcta": true, "feedback": "Correcte! És un protocol de comunicació molt comú per sensors."},
+      {"text": "HDMI", "correcta": false, "feedback": "HDMI és per vídeo digital."},
+      {"text": "VGA", "correcta": false, "feedback": "VGA és un connector de vídeo antic."},
+      {"text": "FM", "correcta": false, "feedback": "FM és una modulació de ràdio."}
+    ]
+  },
+  {
+    "pregunta": "Què indica la velocitat d’un processador en GHz?",
+    "respostes": [
+      {"text": "Freqüència de treball", "correcta": true, "feedback": "Exacte! Defineix la velocitat de càlcul."},
+      {"text": "Quantitat de memòria", "correcta": false, "feedback": "La memòria es mesura en GB."},
+      {"text": "Consum energètic", "correcta": false, "feedback": "El consum s’expressa en watts."},
+      {"text": "Nombre de nuclis", "correcta": false, "feedback": "Els nuclis es compten, no es mesuren en GHz."}
+    ]
+  },
+  {
+    "pregunta": "Quin material és un bon aïllant elèctric?",
+    "respostes": [
+      {"text": "Plàstic", "correcta": true, "feedback": "Sí! S’utilitza molt com a aïllant."},
+      {"text": "Coure", "correcta": false, "feedback": "El coure és un excel·lent conductor."},
+      {"text": "Alumini", "correcta": false, "feedback": "També és conductor."},
+      {"text": "Ferro", "correcta": false, "feedback": "És conductor i magnètic."}
+    ]
+  },
+  {
+    "pregunta": "Quina és la funció d’un condensador?",
+    "respostes": [
+      {"text": "Emmagatzemar energia temporalment", "correcta": true, "feedback": "Correcte! Acumula càrrega elèctrica."},
+      {"text": "Generar senyals", "correcta": false, "feedback": "Això ho fan altres components com els oscil·ladors."},
+      {"text": "Refredar el circuit", "correcta": false, "feedback": "Això no és feina seva."},
+      {"text": "Mesurar corrent", "correcta": false, "feedback": "Això ho fan els amperímetres."}
+    ]
+  },
+  {
+    "pregunta": "Quin robot s’utilitza sovint en línies d’assemblatge industrial?",
+    "respostes": [
+      {"text": "Robot articulat", "correcta": true, "feedback": "Sí! Té alta flexibilitat per moviments complexos."},
+      {"text": "Robot aspiradora", "correcta": false, "feedback": "Aquest treballa a casa, no a la fàbrica."},
+      {"text": "Drone quadcòpter", "correcta": false, "feedback": "S’utilitza en altres aplicacions, no en assemblatge."},
+      {"text": "Robot humanoide", "correcta": false, "feedback": "Són poc comuns en la indústria actual."}
+    ]
+  },
+  {
+    "pregunta": "Quina part del sistema informàtic es defineix com el 'cervell' de l’ordinador?",
+    "respostes": [
+      {"text": "CPU", "correcta": true, "feedback": "Exacte! La CPU controla i processa les dades."},
+      {"text": "Disc dur", "correcta": false, "feedback": "El disc dur només emmagatzema informació."},
+      {"text": "GPU", "correcta": false, "feedback": "La GPU és el cervell només dels gràfics."},
+      {"text": "Font d’alimentació", "correcta": false, "feedback": "Només proporciona energia."}
+    ]
+  },
+  {
+    "pregunta": "Quina tecnologia de comunicació sense fils s’utilitza habitualment per dispositius de curta distància?",
+    "respostes": [
+      {"text": "Bluetooth", "correcta": true, "feedback": "Correcte! Ideal per connexions a pocs metres."},
+      {"text": "GPS", "correcta": false, "feedback": "GPS serveix per geolocalització."},
+      {"text": "4G", "correcta": false, "feedback": "4G és per xarxes de telefonia mòbil."},
+      {"text": "Satèl·lit", "correcta": false, "feedback": "Això és per comunicacions a llarga distància."}
+    ]
+  },
+  {
+    "pregunta": "Quin paràmetre defineix la capacitat d’una bateria?",
+    "respostes": [
+      {"text": "mAh", "correcta": true, "feedback": "Exacte! Indica la quantitat de càrrega elèctrica disponible."},
+      {"text": "GHz", "correcta": false, "feedback": "Això és per processadors."},
+      {"text": "Hz", "correcta": false, "feedback": "Això mesura freqüència."},
+      {"text": "Ω", "correcta": false, "feedback": "Això mesura resistència."}
+    ]
+  },
+  {
+    "pregunta": "Quin sensor es fa servir per detectar moviment?",
+    "respostes": [
+      {"text": "Sensor PIR", "correcta": true, "feedback": "Correcte! Detecta canvi de radiació infraroja, útil per moviment."},
+      {"text": "Sensor d’humitat", "correcta": false, "feedback": "Mesura humitat, no moviment."},
+      {"text": "Sensor de llum LDR", "correcta": false, "feedback": "Mesura intensitat lumínica."},
+      {"text": "Sensor de pressió", "correcta": false, "feedback": "Mesura forces, no moviment directe."}
+      ]
+  },
+  {
     "pregunta": "Quin component s'utilitza per emmagatzemar dades de manera no volàtil?",
     "respostes": [
       {"text": "RAM", "correcta": false, "feedback": "La RAM és volàtil, es perd quan apagues l'ordinador."},
@@ -90,3 +180,4 @@
     ]
   }
 ]
+
